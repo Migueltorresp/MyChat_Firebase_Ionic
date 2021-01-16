@@ -10,54 +10,116 @@
     <img src="../../../assets/img/chat.png" class="img1">
   </div>
   <br/><br/>
-  <ion-card class="card1">
-    <ion-card-header>
-      <ion-card-title class="card1">
-        <b>Hola</b>, Registrate o Inicia Sesión
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form [formGroup]="credentialForm">
-        <ion-item>
-          <ion-input
-            placeholder="Email address"
-            formControlName="email"
-            autofocus="true"
+
+
+
+  <div padding>
+    <ion-segment [(ngModel)]="opt" color="light" class="card1">
+      <ion-segment-button value="signin" class="card1">
+        Sign In
+      </ion-segment-button>
+      <ion-segment-button value="signup" class="card1">
+        Sign Up
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="opt">
+    <form  *ngSwitchCase="'signin'">
+
+      <ion-card-content class="card1">
+        <br/>
+        <form [formGroup]="credentialForm">
+          <ion-item>
+            <ion-input
+              placeholder="Email address"
+              formControlName="email"
+              autofocus="true"
+              clearInput="true"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Email is invalid</span>
+          </div>
+      
+          <ion-item>
+            <ion-input
+            placeholder="Password"
+            type="password"
+            formControlName="password"
             clearInput="true"
           ></ion-input>
-        </ion-item>
-        <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
-          <span *ngIf="email.errors?.required">Email is required</span>
-          <span *ngIf="email.errors?.email">Email is invalid</span>
-        </div>
-    
-        <ion-item>
-          <ion-input
-          placeholder="Password"
-          type="password"
-          formControlName="password"
-          clearInput="true"
-        ></ion-input>
-        </ion-item>
-        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
-          <span *ngIf="password.errors?.required">Password is required</span>
-          <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
-        </div>
+          </ion-item>
+          <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <span *ngIf="password.errors?.required">Password is required</span>
+            <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          </div>
+  
+        </form>
+        <br/>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="signIn()" expand="full" shape="round" color="secondary">Sing in</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
 
-      </form>
-    
-    </ion-card-content>
-  </ion-card>
-<br/><br/><br/>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button (click)="signUp()" expand="full" class="btn1" color="danger">Sing up</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button (click)="signIn()" expand="full" color="secondary">Sing in</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </form>
+
+    <form  *ngSwitchCase="'signup'">
+      <ion-card-content class="card1">
+        <br/>
+        <form [formGroup]="credentialForm">
+          <ion-item>
+            <ion-input
+              placeholder="Email address"
+              formControlName="email"
+              autofocus="true"
+              clearInput="true"
+            ></ion-input>
+          </ion-item>
+          <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
+            <span *ngIf="email.errors?.required">Email is required</span>
+            <span *ngIf="email.errors?.email">Email is invalid</span>
+          </div>
+      
+          <ion-item>
+            <ion-input
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+            clearInput="true"
+          ></ion-input>
+          </ion-item>
+          <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+            <span *ngIf="password.errors?.required">Password is required</span>
+            <span *ngIf="password.errors?.minlength">Password needs to be 6 characters</span>
+          </div>
+  
+        </form>
+        <br/>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="signUp()" expand="full" shape="round" class="btn1" color="primary">Sing up</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+
+      
+
+
+    </form>
+
+  </div>
     
 </ion-content>

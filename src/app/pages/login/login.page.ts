@@ -9,8 +9,10 @@ import { ChatService } from '../../services/chat.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
   credentialForm: FormGroup;
+  
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -18,7 +20,7 @@ export class LoginPage implements OnInit {
     private loadingController: LoadingController,
     private chatService: ChatService
   ) { }
-
+  
   ngOnInit() {
     this.credentialForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
