@@ -1,0 +1,57 @@
+.message-input {
+    width: 100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 6px;
+    background: #fff;
+    resize: none;
+    margin-top: 0px;
+    --padding-start: 8px;
+}
+
+.message {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    margin-bottom: 4px !important;
+    white-space: pre-wrap;
+}
+
+.my-message {
+    background: var(--ion-color-light-message1);
+    color: #fff;
+}
+
+.other-message {
+    background: var(--ion-color-light-message2);
+    color: #fff;
+}
+
+.time {
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+}
+
+.mi-toolbar {
+    --background: #7B241C;
+    --color: white;
+}
+
+.mi-toolbar2 {
+    --background: #7B241C;
+    --color: black;
+    
+}
+
+.btn-color{
+    --background: white;
+    --color:white;
+}
+
+.content1{
+    --background: #FDEBD0;
+}
+
+.titulo1{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
