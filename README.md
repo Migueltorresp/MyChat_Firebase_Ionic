@@ -2,7 +2,7 @@
 
 El proyecto esta desarrollado en ionic y en firebase como base de datos.
 <br>Link de la explicación el video: https://youtu.be/0VY9H-KACPk
-Acontinuacion se muestra el detalle de la funcionalidad y explicación del proyecto
+<br>Acontinuacion se muestra el detalle de la funcionalidad y explicación del proyecto
 
 ## Paginas
 - Login
